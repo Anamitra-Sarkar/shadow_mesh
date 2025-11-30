@@ -98,6 +98,8 @@ class TransportService:
         bound = False
         for port_offset in range(100):
             try:
+                # Bind to all interfaces - required for P2P LAN messaging
+                # All traffic is encrypted with RSA/Fernet
                 self._server_socket.bind(('', self.port + port_offset))
                 self.port = self.port + port_offset
                 bound = True

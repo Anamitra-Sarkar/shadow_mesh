@@ -21,6 +21,7 @@ If no username is provided, one will be automatically generated.
 import argparse
 import logging
 import sys
+from typing import Optional
 
 
 def setup_logging(verbose: bool = False) -> None:
@@ -73,7 +74,7 @@ Examples:
     return parser.parse_args()
 
 
-def run_headless(username: str | None) -> None:
+def run_headless(username: Optional[str]) -> None:
     """Run SHADOW-MESH in headless mode."""
     from p2p_engine import P2PEngine
     
@@ -143,7 +144,7 @@ def run_headless(username: str | None) -> None:
         engine.stop()
 
 
-def run_gui(username: str | None) -> None:
+def run_gui(username: Optional[str]) -> None:
     """Run SHADOW-MESH with GUI."""
     from gui import ShadowMeshGUI
     

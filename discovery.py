@@ -211,6 +211,8 @@ class DiscoveryService:
             self._listen_socket.settimeout(1.0)
             
             try:
+                # Bind to all interfaces - required for P2P LAN discovery
+                # All traffic is encrypted, so this is safe
                 self._listen_socket.bind(('', self.DISCOVERY_PORT))
             except OSError as e:
                 logger.error(f"Failed to bind discovery port: {e}")
